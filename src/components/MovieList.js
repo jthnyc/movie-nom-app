@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SearchContext } from "../contexts/SearchContext";
 
-const MovieList = ({ movie, addItem }) => {
+const MovieList = () => {
+  const { movie, addItem } = useContext(SearchContext);
   return movie ? (
     <div className="card-body" onClick={addItem}>
       <img src={movie.Poster} alt={`Poster of ${movie.Title}`} />

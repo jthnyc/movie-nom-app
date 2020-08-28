@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import ListDetail from "./ListDetail";
+import { SearchContext } from "../contexts/SearchContext";
 
-const NomList = ({ list }) => {
+const NomList = () => {
+  const { list } = useContext(SearchContext);
   return (
     <div>
       <h3>Nominees</h3>

@@ -1,34 +1,10 @@
-import React, { useState, useEffect } from "react";
-import MovieList from "../components/MovieList";
-import Axios from "axios";
-import NomList from "./NomList";
-
-const API_KEY = process.env.REACT_APP_API_KEY;
-const API_URL = `http://omdbapi.com/?apikey=${API_KEY}`;
+import React, { useContext } from "react";
+import { SearchContext } from "../contexts/SearchContext";
 
 const SearchBar = () => {
-  const [list, setList] = useState([]);
-  const [movie, setMovie] = useState({ movies: [] });
-  const [title, setTitle] = useState("");
-  const [year, setYear] = useState("");
-  const [url, setUrl] = useState(API_URL);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await Axios(url);
-      console.log("RESULT: ", result.data);
-      setMovie(result.data);
-    };
-    fetchData();
-  }, [url]);
-
-  const addItem = () => {
-    console.log("ADDED ITEM!", movie.Title);
-    setList([
-      ...list,
-      { title: movie.Title, year: movie.Year, id: movie.imdbID },
-    ]);
-  };
+  const { title, setTitle, year, setYear, setUrl, API_URL } = useContext(
+    SearchContext
+  );
 
   return (
     <div>
@@ -60,8 +36,6 @@ const SearchBar = () => {
           Search
         </button>
       </form>
-      <MovieList movie={movie} addItem={addItem} />
-      <NomList list={list} />
     </div>
   );
 };
