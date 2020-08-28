@@ -1,21 +1,19 @@
-// import React, { useContext } from "react";
-// import { NomContext } from "../contexts/NomContext";
-// import ListDetail from "../components/ListDetail";
+import React from "react";
+import ListDetail from "./ListDetail";
 
-// const NomList = () => {
-//   const { list } = useContext(NomContext);
-//   return list ? (
-//     <div>
-//       <ul>
-//         {console.log("ITEM in NOMLIST: ", list)}
-//         {list.map((item) => (
-//           <ListDetail />
-//         ))}
-//       </ul>
-//     </div>
-//   ) : (
-//     <h5>Get some nominations going!</h5>
-//   );
-// };
+const NomList = ({ list }) => {
+  return (
+    <div>
+      <h3>Nominees</h3>
+      <ul>
+        {list.length >= 1 ? (
+          list.map((item) => <ListDetail item={item} key={item.id} />)
+        ) : (
+          <em>You know nothing, Jo Snow</em>
+        )}
+      </ul>
+    </div>
+  );
+};
 
-// export default NomList;
+export default NomList;

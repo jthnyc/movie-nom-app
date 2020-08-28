@@ -1,19 +1,12 @@
-// import React from "react";
-// // import { NomContext } from "../contexts/NomContext";
+import React from "react";
 
-// const ListDetail = ({ item, key }) => {
-//   // const { removeItem } = useContext(NomContext);
+const ListDetail = ({ item }) => {
+  return (
+    <li className="list-group-item">
+      <h5 className="card-title">{item.title}</h5>
+      <h6 className="card-subtitle mb-2 text-muted">{item.year}</h6>
+    </li>
+  );
+};
 
-//   // const handleClick = () => {};
-
-//   return (
-//     <li className="list-group-item" key={key}>
-//       {/* <img src={movie.Poster} alt={`Poster of meow`} /> */}
-//       <h5 className="card-title">MEOW</h5>
-//       <h6 className="card-subtitle mb-2 text-muted">MEOW</h6>
-//       <p className="card-text">{item}</p>
-//     </li>
-//   );
-// };
-
-// export default ListDetail;
+export default ListDetail;

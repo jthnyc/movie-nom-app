@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MovieList from "../components/MovieList";
 import Axios from "axios";
+import NomList from "./NomList";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = `http://omdbapi.com/?apikey=${API_KEY}`;
@@ -21,30 +22,13 @@ const SearchBar = () => {
     fetchData();
   }, [url]);
 
-  useEffect(() => {
-    console.log(`List is now ${list.length} movie/s long, list: ${list}`);
-  });
-
-  // useEffect(() => {
-  //   const addItem = () => {
-  //     console.log("ADDED ITEM!", movie.Title);
-  //     setList([
-  //       ...list,
-  //       { title: movie.Title, year: movie.Year, id: movie.imdbID },
-  //     ]);
-  //     console.log("NOMLIST: ", list);
-  //   };
-  //   addItem();
-  // }, [list]);
-
-  // const addItem = () => {
-  //   console.log("ADDED ITEM!", movie.Title);
-  //   setList([
-  //     ...list,
-  //     { title: movie.Title, year: movie.Year, id: movie.imdbID },
-  //   ]);
-  //   console.log("NOMLIST: ", list);
-  // };
+  const addItem = () => {
+    console.log("ADDED ITEM!", movie.Title);
+    setList([
+      ...list,
+      { title: movie.Title, year: movie.Year, id: movie.imdbID },
+    ]);
+  };
 
   return (
     <div>
@@ -76,27 +60,8 @@ const SearchBar = () => {
           Search
         </button>
       </form>
-      <MovieList
-        movie={movie}
-        addItem={() =>
-          setList([
-            ...list,
-            { title: movie.Title, director: movie.Director, id: movie.imdbID },
-          ])
-        }
-      />
-      <div>
-        <h3>Nominees</h3>
-        {/* {console.log("LIST: ", list[0])} */}
-        {/* {console.log("Title: ", list[0].title)} */}
-        <ul>
-          {list.length >= 1 ? (
-            list.map((item) => <li key={item.id}>{item.title}</li>)
-          ) : (
-            <em>You know nothing, Jo Snow</em>
-          )}
-        </ul>
-      </div>
+      <MovieList movie={movie} addItem={addItem} />
+      <NomList list={list} />
     </div>
   );
 };
