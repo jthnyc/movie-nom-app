@@ -5,9 +5,9 @@ import { SearchContext } from "../contexts/SearchContext";
 const NomList = () => {
   const { list } = useContext(SearchContext);
   return (
-    <div>
+    <div className="nom-container">
       <h3>Nominees</h3>
-      <ul>
+      <ul className="list-container">
         {list.length >= 1 ? (
           list.map((item) => <ListDetail item={item} key={item.id} />)
         ) : (
