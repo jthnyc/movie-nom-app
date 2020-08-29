@@ -30,6 +30,11 @@ const SearchContextProvider = (props) => {
     ]);
   };
 
+  const deleteItem = (id) => {
+    console.log(`REMOVED movie with ID: ${id}`);
+    setList(list.filter((item) => item.id !== id));
+  };
+
   return (
     <SearchContext.Provider
       value={{
@@ -45,6 +50,7 @@ const SearchContextProvider = (props) => {
         setList,
         addItem,
         API_URL,
+        deleteItem,
       }}
     >
       {props.children}
