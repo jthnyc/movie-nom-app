@@ -116,3 +116,8 @@ code {
   width: 100%;
   padding: 20px auto;
 }
+
+.list-details:hover {
+  text-decoration: line-through;
+  text-shadow: 0.8px 0.8px #3a07f3;
+}
