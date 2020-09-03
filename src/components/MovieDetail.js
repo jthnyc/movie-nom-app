@@ -1,8 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 
 const MovieDetail = ({ title, director, year, id }) => {
   const { addItem } = useContext(SearchContext);
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = (id) => {
+    addItem(id);
+    setClicked(true);
+  };
 
   return (
     <div className="movie-details">
@@ -10,7 +16,9 @@ const MovieDetail = ({ title, director, year, id }) => {
       <h5 className="movie-title">{title}</h5>
       <h6 className="movie-director">{director}</h6>
       <p className="movie-year">{year}</p>
-      <button onClick={() => addItem(id)}>Nominate</button>
+      <button onClick={() => handleClick(id)} disabled={clicked}>
+        Nominate
+      </button>
     </div>
   );
 };
