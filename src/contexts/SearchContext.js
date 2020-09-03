@@ -12,6 +12,7 @@ const SearchContextProvider = (props) => {
   const [year, setYear] = useState("");
   const [url, setUrl] = useState(API_URL);
   const [list, setList] = useState([]);
+  // let [counter, setCounter] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,10 +25,15 @@ const SearchContextProvider = (props) => {
 
   const addItem = () => {
     console.log("ADDED ITEM!", movie.Title);
+    // if (e.detail === null) {
     setList([
       ...list,
       { title: movie.Title, year: movie.Year, id: movie.imdbID },
     ]);
+    // } else {
+    //   console.log("clicked more than once!");
+    //   alert("Movie already in list!");
+    // }
   };
 
   const deleteItem = (id) => {

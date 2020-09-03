@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import ListDetail from "./ListDetail";
 import { SearchContext } from "../contexts/SearchContext";
-import { Container, Draggable } from "react-smooth-dnd";
+import { ReactSortable } from "react-sortablejs";
 
 const NomList = () => {
-  const { list, deleteItem } = useContext(SearchContext);
+  const { list, setList, deleteItem } = useContext(SearchContext);
+
   return (
     <div className="nom-container">
       <h3>Nominees</h3>
@@ -18,15 +19,18 @@ const NomList = () => {
         )}
       </ul> */}
       <div>
-        <Container>
+        <ReactSortable
+          list={list}
+          setList={setList}
+          delayOnTouchStart={true}
+          delay={2}
+        >
           {list.map((item) => {
             return (
-              <Draggable>
-                <ListDetail item={item} key={item.id} deleteItem={deleteItem} />
-              </Draggable>
+              <ListDetail item={item} key={item.id} deleteItem={deleteItem} />
             );
           })}
-        </Container>
+        </ReactSortable>
       </div>
     </div>
   );

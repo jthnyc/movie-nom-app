@@ -113,6 +113,10 @@ code {
   color: black;
 }
 
+.movie-details:hover {
+  cursor: pointer;
+}
+
 /* NOMINATION LIST */
 .nom-container {
   border: 1px solid white;
