@@ -6,7 +6,7 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./img/film-rolls.jpg");
+  /* background-image: url("./img/film-rolls.jpg"); */
   /* background-size: 100% 100%; */
   -webkit-background-size: cover; /* For WebKit*/
   -moz-background-size: cover; /* Mozilla*/
@@ -30,15 +30,19 @@ code {
   grid-template-rows: 20% 20% 30% 30%; */
 }
 
-.search-container {
+.list-details {
+  color: black;
+}
+/*
+ .search-container {
   display: flex;
-  /* padding: 1rem;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  position: absolute;
-  top: 20px;
-  left: 50px;
-  width: 40%; */
+  //padding: 1rem;
+  //background-color: #fff;
+  //border-radius: 0.25rem;
+  //position: absolute;
+  //top: 20px;
+  //left: 50px;
+  //width: 40%; 
 }
 
 .banner {
@@ -65,14 +69,15 @@ code {
   display: grid;
   grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
   grid-gap: auto;
-  /* height: 50%; */
+  //height: 50%;
 }
+*/
 
-/* .search input { */
-/* height: 2rem;
+/* .search input { 
+  height: 2rem;
   width: 100%;
-  padding: 1rem; */
-/* } */
+  padding: 1rem; 
+} 
 
 .search button {
   width: 80%;
@@ -87,17 +92,17 @@ code {
   border: 2px solid orange;
 }
 
-/* MOVIE LIST */
-.movie-container {
+MOVIE LIST 
+/*.movie-container {
   border: 1px solid white;
   padding: 1rem;
   background-color: #fff;
   border-radius: 0.25rem;
-  /* margin: 1rem auto; */
+  //margin: 1rem auto;
   color: black;
   width: 50%;
   margin: 1.5rem 2rem;
-  /* height: 80%; */
+  //height: 80%;
 }
 
 .movie-details {
@@ -113,7 +118,7 @@ code {
   cursor: pointer;
 }
 
-/* NOMINATION LIST */
+NOMINATION LIST 
 .nom-container {
   border: 1px solid white;
   padding: 1rem;
@@ -123,17 +128,17 @@ code {
   color: black;
   text-align: center;
   width: 80%;
-  /* position: absolute;
-  top: 20px;
-  right: 40px;
-  width: 50%; */
+  //position: absolute;
+  //top: 20px;
+  //right: 40px;
+  //width: 50%; 
 }
 
 .list-container {
   display: inline-grid;
   border: 1px solid red;
   width: 100%;
-  /* justify-content: center; */
+  //ustify-content: center;
 }
 
 .list-details {
@@ -147,4 +152,5 @@ code {
 .list-details:hover {
   text-decoration: line-through;
   text-shadow: 0.8px 0.8px #3a07f3;
-}
+} 
+*/

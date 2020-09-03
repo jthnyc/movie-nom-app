@@ -3,11 +3,10 @@ import { SearchContext } from "../contexts/SearchContext";
 import MovieDetail from "../components/MovieDetail";
 
 const MovieList = () => {
-  const { movieList, addItem } = useContext(SearchContext);
-  console.log("MOVIES IN movielist: ", movieList);
+  const { movieList } = useContext(SearchContext);
+
   return (
     <div className="movie-container">
-      {console.log("Are there any movies here: ", movieList)}
       {movieList ? (
         movieList
           .sort((a, b) => a.Year - b.Year)
@@ -18,7 +17,7 @@ const MovieList = () => {
               director={movie.Director}
               year={movie.Year}
               poster={movie.Poster}
-              addItem={addItem}
+              id={movie.imdbID}
             />
           ))
       ) : (

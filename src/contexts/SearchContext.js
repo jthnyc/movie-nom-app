@@ -17,18 +17,25 @@ const SearchContextProvider = (props) => {
     const fetchData = async () => {
       const response = await Axios(url);
       const movies = response.data["Search"];
-      console.log("RESULT: ", movies);
+      // console.log("RESULT: ", movies);
       setMovieList(movies);
     };
     fetchData();
   }, [url]);
 
-  const addItem = () => {
-    console.log("ADDED ITEM!", movieList.Title);
+  const addItem = (id) => {
+    console.log("ID IN ADD: ", id);
+    const movieToAdd = movieList.filter((movie) => movie.imdbID === id)[0];
+    console.log("ADDED ITEM!", movieToAdd);
+
     // if (e.detail === null) {
     setList([
       ...list,
-      { title: movieList.Title, year: movieList.Year, id: movieList.imdbID },
+      {
+        title: movieToAdd.Title,
+        year: movieToAdd.Year,
+        id: movieToAdd.imdbID,
+      },
     ]);
     // } else {
     //   console.log("clicked more than once!");
