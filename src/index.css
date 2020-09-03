@@ -68,15 +68,11 @@ code {
   /* height: 50%; */
 }
 
-.search h4 {
-  border: 1px solid green;
-}
-
-.search input {
-  /* height: 2rem;
+/* .search input { */
+/* height: 2rem;
   width: 100%;
   padding: 1rem; */
-}
+/* } */
 
 .search button {
   width: 80%;
@@ -113,7 +109,7 @@ code {
   color: black;
 }
 
-.movie-details:hover {
+.movie-details button:hover {
   cursor: pointer;
 }
 

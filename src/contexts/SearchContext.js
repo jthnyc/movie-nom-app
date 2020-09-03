@@ -4,7 +4,7 @@ import Axios from "axios";
 export const SearchContext = createContext();
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const API_URL = `http://omdbapi.com/?apikey=${API_KEY}`;
+const API_URL = `http://omdbapi.com/?apikey=${API_KEY}&results=10`;
 
 const SearchContextProvider = (props) => {
   const [movie, setMovie] = useState({ movies: [] });
@@ -12,7 +12,6 @@ const SearchContextProvider = (props) => {
   const [year, setYear] = useState("");
   const [url, setUrl] = useState(API_URL);
   const [list, setList] = useState([]);
-  // let [counter, setCounter] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {

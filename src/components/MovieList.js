@@ -7,11 +7,12 @@ const MovieList = () => {
   return (
     <div className="movie-container">
       {movie ? (
-        <div className="movie-details" onClick={addItem}>
-          <img src={movie.Poster} alt="" />
+        <div className="movie-details">
+          {/* <img src={movie.Poster} alt="" /> */}
           <h5 className="movie-title">{movie.Title}</h5>
           <h6 className="movie-director">{movie.Director}</h6>
           <p className="movie-year">{movie.Year}</p>
+          <button onCLick={addItem}>Nominate</button>
         </div>
       ) : (
         //   <div className="card-body" onClick={addItem}>
