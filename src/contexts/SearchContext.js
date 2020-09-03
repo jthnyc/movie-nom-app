@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = `http://omdbapi.com/?apikey=${API_KEY}&results=10`;
 
 const SearchContextProvider = (props) => {
-  const [movie, setMovie] = useState({ movies: [] });
+  const [movieList, setMovieList] = useState([]);
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [url, setUrl] = useState(API_URL);
@@ -15,36 +15,37 @@ const SearchContextProvider = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await Axios(url);
-      console.log("RESULT: ", result.data);
-      setMovie(result.data);
+      const response = await Axios(url);
+      const movies = response.data["Search"];
+      console.log("RESULT: ", movies);
+      setMovieList(movies);
     };
     fetchData();
   }, [url]);
 
   const addItem = () => {
-    console.log("ADDED ITEM!", movie.Title);
+    console.log("ADDED ITEM!", movieList.Title);
     // if (e.detail === null) {
     setList([
       ...list,
-      { title: movie.Title, year: movie.Year, id: movie.imdbID },
+      { title: movieList.Title, year: movieList.Year, id: movieList.imdbID },
     ]);
     // } else {
     //   console.log("clicked more than once!");
-    //   alert("Movie already in list!");
+    //   alert("movieList already in list!");
     // }
   };
 
   const deleteItem = (id) => {
-    console.log(`REMOVED movie with ID: ${id}`);
+    console.log(`REMOVED movieList with ID: ${id}`);
     setList(list.filter((item) => item.id !== id));
   };
 
   return (
     <SearchContext.Provider
       value={{
-        movie,
-        setMovie,
+        movieList,
+        setMovieList,
         title,
         setTitle,
         year,

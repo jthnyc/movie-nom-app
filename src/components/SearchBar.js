@@ -10,7 +10,7 @@ const SearchBar = () => {
     <div className="search">
       <form
         onSubmit={(e) => {
-          setUrl(API_URL + `&s=${title}`);
+          setUrl(API_URL + `&s=${title}&y=${year}&type=movie`);
           e.preventDefault();
         }}
       >
@@ -23,15 +23,15 @@ const SearchBar = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="inputYear">Year</label>
+        <div className="form-group">
+          <label htmlFor="inputYear">Year (Optional)</label>
           <input
             type="text"
             value={year}
             className="form-control"
             onChange={(e) => setYear(e.target.value)}
           />
-        </div> */}
+        </div>
         <button type="submit" className="btn btn-primary">
           Search
         </button>
