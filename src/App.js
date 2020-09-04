@@ -10,7 +10,6 @@ const App = () => {
     <div className="App">
       <SearchContextProvider>
         <Title />
-
         <SearchBar />
         <div className="results-container">
           <MovieList />

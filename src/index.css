@@ -74,19 +74,34 @@ code {
   box-shadow: 0 0 5px #ccc;
 }
 
-.movie-details {
+.movielist-container {
+  /* border: 2px solid red; */
+  display: table;
+  margin: 25px auto;
+  width: 100%;
+  /* border-spacing: 0px em; */
+}
+
+.movielist-details {
   /* border: 1px dotted green; */
   /* display: flex; */
+  /* justify-content: space-between;
+  align-items: baseline; */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  left: 0px;
   justify-content: space-between;
-  align-items: baseline;
 }
 
 .movie-details-text {
   display: flex;
-  /* flex-wrap: wrap; */
+  /* border: 0.5px solid blue; */
+  width: 75%;
 }
 
-.movie-details button,
+.movielist-details button,
 .nomlist-details button {
   border-radius: 5px;
   border: 0.2px solid lightgray;
@@ -108,18 +123,44 @@ code {
   box-shadow: 0 0 5px #ccc;
 }
 
+.nomlist-container {
+  /* border: 2px solid red; */
+  display: table;
+  margin: 25px auto;
+  width: 98%;
+}
+
 .nomlist-details {
   /* border: 1px dotted purple; */
-  /* display: flex; */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  left: 0px;
   justify-content: space-between;
 }
 
 .nomlist-details-text {
   display: flex;
-  /* justify-content: space-around; */
+  /* border: 0.5px solid blue; */
+  width: 75%;
 }
 
-.nomlist-details-title {
-  display: flex;
-  /* flex-wrap: wrap; */
+.nomlist-submitted {
+}
+
+.list-full-banner {
+  margin: 15px auto;
+}
+
+.list-full-button {
+  margin: 30px 0 0 0;
+  width: 100%;
+  border-radius: 5px;
+  border: 0.2px solid lightgray;
+  padding: 5px 15px;
+  box-shadow: 0 0 2px #ccc;
+  -webkit-box-shadow: 0 0 2px #ccc;
+  -moz-box-shadow: 0 0 2px #ccc;
+  box-shadow: 0 0 2px #ccc;
 }

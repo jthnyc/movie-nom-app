@@ -17,20 +17,26 @@ const MovieList = () => {
       )}
 
       {movieList ? (
-        <ReactSortable list={movieList} setList={setMovieList} disabled={true}>
-          {movieList
-            .sort((a, b) => a.Year - b.Year)
-            .map((movie) => (
-              <MovieDetail
-                key={movie.imdbID}
-                title={movie.Title}
-                director={movie.Director}
-                year={movie.Year}
-                poster={movie.Poster}
-                id={movie.imdbID}
-              />
-            ))}
-        </ReactSortable>
+        <div className="movielist-container">
+          <ReactSortable
+            list={movieList}
+            setList={setMovieList}
+            disabled={true}
+          >
+            {movieList
+              .sort((a, b) => a.Year - b.Year)
+              .map((movie) => (
+                <MovieDetail
+                  key={movie.imdbID}
+                  title={movie.Title}
+                  director={movie.Director}
+                  year={movie.Year}
+                  poster={movie.Poster}
+                  id={movie.imdbID}
+                />
+              ))}
+          </ReactSortable>
+        </div>
       ) : (
         //   <div className="card-body" onClick={addItem}>
         //   <img src={movie.Poster} alt={`Poster of ${movie.Title}`} />

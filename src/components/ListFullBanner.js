@@ -2,8 +2,8 @@ import React from "react";
 
 const ListFullBanner = () => {
   return (
-    <div>
-      <h2>You've got 5 nominations.</h2>
+    <div className="list-full-banner">
+      <h3>You've got 5 nominations.</h3>
       <p>
         Feel free to reorder the list by preference and click Submit when done!
       </p>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { SearchContext } from "../contexts/SearchContext";
+import filmIcon from "../img/filmIcon.png";
 
 const MovieDetail = ({ title, director, year, id }) => {
   const { addItem, list } = useContext(SearchContext);
@@ -13,10 +14,14 @@ const MovieDetail = ({ title, director, year, id }) => {
   };
 
   return (
-    <li className="movie-details">
+    <li className="movielist-details">
+      <span>
+        <img src={filmIcon} alt="filmIcon" />
+      </span>
       <div className="movie-details-text">
-        <p className="movie-title">{title}</p>
-        <p className="movie-year">({year})</p>
+        <p>
+          {title} ({year})
+        </p>
       </div>
       <button onClick={() => handleClick(id)} disabled={clicked}>
         Nominate

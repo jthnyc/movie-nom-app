@@ -2,15 +2,13 @@ import React, { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 
 const SearchBar = () => {
-  const { title, setTitle, year, setYear, setUrl, API_URL } = useContext(
-    SearchContext
-  );
+  const { title, setTitle, setUrl, API_URL } = useContext(SearchContext);
 
   return (
     <div className="search-container">
       <form
         onSubmit={(e) => {
-          setUrl(API_URL + `&s=${title}&y=${year}&type=movie`);
+          setUrl(API_URL + `&s=${title}&type=movie`);
           e.preventDefault();
         }}
       >
