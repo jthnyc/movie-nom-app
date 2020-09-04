@@ -29,10 +29,10 @@ const MovieList = () => {
                 <MovieDetail
                   key={movie.imdbID}
                   title={movie.Title}
-                  director={movie.Director}
                   year={movie.Year}
                   poster={movie.Poster}
                   id={movie.imdbID}
+                  isDisabled={movie.isDisabled}
                 />
               ))}
           </ReactSortable>

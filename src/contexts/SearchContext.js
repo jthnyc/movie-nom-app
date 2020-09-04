@@ -8,6 +8,11 @@ const API_URL = `http://omdbapi.com/?apikey=${API_KEY}&results=10`;
 
 const SearchContextProvider = (props) => {
   const [movieList, setMovieList] = useState([]);
+  /**
+   *  {
+   *    title, plot, year, isNominated
+   * }
+   */
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState(API_URL);
   const [list, setList] = useState(() => {
@@ -19,8 +24,24 @@ const SearchContextProvider = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await Axios(url);
-      const movies = response.data["Search"];
-      // console.log("RESULT: ", movies);
+
+      let movies = response.data["Search"];
+      if (movies !== undefined) {
+        movies = movies.map((movie) => {
+          return {
+            ...movie,
+            isNominated: false,
+          };
+        });
+      }
+
+      // let foo = {a: 'A', b: 'B', c: 'C'};
+      // let res = {...foo, c:'D'};
+      // console.log(res)
+
+      // [...] => [..., isNominated]
+
+      console.log("RESULT: ", movies);
       setMovieList(movies);
     };
     fetchData();
@@ -31,22 +52,44 @@ const SearchContextProvider = (props) => {
   }, [list]);
 
   const addItem = (id) => {
+    // flip isNominated to true
     console.log("ID IN ADD: ", id);
-    const movieToAdd = movieList.filter((movie) => movie.imdbID === id)[0];
-    console.log("ADDED ITEM!", movieToAdd.Title);
-    setList([
-      ...list,
-      {
-        title: movieToAdd.Title,
-        year: movieToAdd.Year,
-        id: movieToAdd.imdbID,
-      },
-    ]);
+
+    const newMovieList = movieList.map((movie) => {
+      if (movie.imdbID === id) {
+        movie.isNominated = true;
+      }
+      return movie;
+    });
+
+    setMovieList(newMovieList);
+    console.log("NOMINATE: updated nominated: ", movieList);
+
+    // const movieToAdd = movieList.filter((movie) => movie.imdbID === id)[0];
+    // console.log("ADDED ITEM!", movieToAdd.Title);
+    // setList([
+    //   ...list,
+    //   {
+    //     title: movieToAdd.Title,
+    //     year: movieToAdd.Year,
+    //     id: movieToAdd.imdbID,
+    //   },
+    // ]);
   };
 
   const deleteItem = (id) => {
-    console.log(`REMOVED movieList with ID: ${id}`);
-    setList(list.filter((item) => item.id !== id));
+    // flip isNominated to false
+    const newMovieList = movieList.map((movie) => {
+      if (movie.imdbID === id) {
+        movie.isNominated = false;
+      }
+      return movie;
+    });
+    setMovieList(newMovieList);
+    console.log(`REMOVE: removed ${id} from nominated -> , ${movieList}`);
+    // console.log(`REMOVED movieList with ID: ${id}`);
+    // setList(list.filter((item) => item.id !== id));
+    // setMovieList()
   };
 
   return (

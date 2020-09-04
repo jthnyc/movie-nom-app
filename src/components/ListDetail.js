@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import starIcon from "../img/starIcon.png";
 
-const ListDetail = ({ item, deleteItem, submitted }) => {
-  const [disabledRemove, setDisableRemove] = useState("false");
+const ListDetail = ({ item, deleteItem, submitted, key }) => {
+  // const [disabledRemove, setDisableRemove] = useState("false");
+  console.log("ITEM IN LIST DETAIL: ", item);
+
+  const handleClick = (id) => {
+    deleteItem(id);
+  };
 
   return (
     <li className="nomlist-details">
-      {/*onClick={() => deleteItem(item.id)} was on li */}
       <span>
-        <img src={starIcon} alt="filmIcon" />
+        <img src={starIcon} alt="starIcon" />
       </span>
       <div className="nomlist-details-text">
         <p>
-          {item.title} ({item.year})
+          {item.Title} ({item.Year})
         </p>
       </div>
 
@@ -20,15 +24,8 @@ const ListDetail = ({ item, deleteItem, submitted }) => {
         <div></div>
       ) : (
         <button
-          onClick={
-            submitted
-              ? () => {
-                  console.log("can't delete");
-                  setDisableRemove("true");
-                }
-              : () => deleteItem(item.id)
-          }
-          disable={disabledRemove}
+          onClick={() => handleClick(item.imdbID)}
+          // disable={disabledRemove}
         >
           Remove
         </button>

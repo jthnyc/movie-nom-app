@@ -5,10 +5,16 @@ import { ReactSortable } from "react-sortablejs";
 import ListFullBanner from "./ListFullBanner";
 
 const NomList = () => {
-  const { list, setList, deleteItem } = useContext(SearchContext);
+  const { movieList, setMovieList, list, deleteItem } = useContext(
+    SearchContext
+  );
   const [submitted, setSubmit] = useState(false);
   // const [disableSort, setDisableSort] = useState(false);
+  const nominated = movieList
+    ? movieList.filter((movie) => movie.isNominated === true)
+    : [];
 
+  // console.log("NOMINATED IN NOMLIST: ", nominated);
   const handleSubmit = () => {
     setSubmit(true);
     // setDisableSort(true);
@@ -21,12 +27,18 @@ const NomList = () => {
 
       {submitted === true ? (
         <div className="nomlist-submitted">
-          <ReactSortable list={list} setList={setList} disabled={true}>
-            {list.map((item) => {
+          <ReactSortable
+            list={movieList}
+            setList={setMovieList}
+            disabled={true}
+          >
+            {nominated.map((item) => {
               return (
                 <ListDetail
+                  // title={item.Title}
+                  // year={item.Year}
                   item={item}
-                  key={item.id}
+                  key={item.imdbID}
                   deleteItem={deleteItem}
                   submitted={submitted}
                 />
@@ -39,12 +51,18 @@ const NomList = () => {
         <div>
           {list.length === 5 ? <ListFullBanner /> : ""}
           <div className="nomlist-container">
-            <ReactSortable list={list} setList={setList} disabled={false}>
-              {list.map((item) => {
+            <ReactSortable
+              list={movieList}
+              setList={setMovieList}
+              disabled={false}
+            >
+              {nominated.map((item) => {
                 return (
                   <ListDetail
+                    // title={item.Title}
+                    // year={item.Year}
                     item={item}
-                    key={item.id}
+                    key={item.imdbID}
                     deleteItem={deleteItem}
                     submitted={submitted}
                   />

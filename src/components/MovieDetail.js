@@ -1,15 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 import filmIcon from "../img/filmIcon.png";
 
-const MovieDetail = ({ title, director, year, id }) => {
-  const { addItem, list } = useContext(SearchContext);
-  const [clicked, setClicked] = useState(false);
+const MovieDetail = ({ title, year, id, isDisabled }) => {
+  const { addItem, movieList } = useContext(SearchContext);
+  // const [clicked, setClicked] = useState(false);
+  let nominated = movieList
+    ? movieList.filter((movie) => movie.isDisabled === true)
+    : [];
 
   const handleClick = (id) => {
-    if (list.length < 5) {
+    if (nominated.length < 5) {
       addItem(id);
-      setClicked(true);
+      // setClicked(true);
     }
   };
 
@@ -23,7 +26,7 @@ const MovieDetail = ({ title, director, year, id }) => {
           {title} ({year})
         </p>
       </div>
-      <button onClick={() => handleClick(id)} disabled={clicked}>
+      <button onClick={() => handleClick(id)} disabled={isDisabled}>
         Nominate
       </button>
     </li>
