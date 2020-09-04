@@ -13,15 +13,15 @@ const MovieDetail = ({ title, director, year, id }) => {
   };
 
   return (
-    <div className="movie-details">
-      {/* <img src={poster} alt="" /> */}
-      <h5 className="movie-title">{title}</h5>
-      <h6 className="movie-director">{director}</h6>
-      <p className="movie-year">{year}</p>
+    <li className="movie-details">
+      <div className="movie-details-text">
+        <p className="movie-title">{title}</p>
+        <p className="movie-year">({year})</p>
+      </div>
       <button onClick={() => handleClick(id)} disabled={clicked}>
         Nominate
       </button>
-    </div>
+    </li>
   );
 };
 

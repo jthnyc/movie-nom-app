@@ -4,12 +4,17 @@ const ListDetail = ({ item, deleteItem, submitted }) => {
   const [disabledRemove, setDisableRemove] = useState("false");
 
   return (
-    <li className="list-details">
+    <li className="nomlist-details">
       {/*onClick={() => deleteItem(item.id)} was on li */}
-      <h5 className="card-title">{item.title}</h5>
-      <h6 className="card-subtitle mb-2 text-muted">{item.year}</h6>
+      <div className="nomlist-details-text">
+        <div className="nomlist-details-title">
+          <p>{item.title}</p>
+        </div>
+
+        <p>({item.year})</p>
+      </div>
+
       <button
-        className="nom-list-remove"
         onClick={
           submitted
             ? () => {

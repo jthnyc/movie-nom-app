@@ -10,11 +10,12 @@ const App = () => {
     <div className="App">
       <SearchContextProvider>
         <Title />
-        <div className="search-container">
-          <SearchBar />
+
+        <SearchBar />
+        <div className="results-container">
           <MovieList />
+          <NomList />
         </div>
-        <NomList />
       </SearchContextProvider>
     </div>
   );

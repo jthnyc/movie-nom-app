@@ -17,7 +17,7 @@ const NomList = () => {
   return (
     <div className="nom-container">
       {/* {console.log("DisableSort is: ", disableSort)} */}
-      <h3>Nominations</h3>
+      <h5>Nominations</h5>
       <div>
         {list.length === 5 ? <ListFullBanner /> : ""}
         {disableSort === true ? (

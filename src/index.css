@@ -12,6 +12,7 @@ body {
   -moz-background-size: cover; /* Mozilla*/
   -o-background-size: cover; /* Opera*/
   background-size: cover; /* Generic*/
+  background-color: #f5f9fb;
 }
 
 code {
@@ -20,137 +21,105 @@ code {
 }
 
 .App {
-  min-height: 90vh;
-  width: 100vw;
-  margin: 0 auto;
-  display: inline-grid;
-  border: 2px solid white;
-  /* display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 20% 20% 30% 30%; */
+  margin: 80px 80px;
+  /* background-color: #f5f9fb; */
+  /* border: 2px solid black; */
 }
 
-.list-details {
-  color: black;
-}
-/*
- .search-container {
-  display: flex;
-  //padding: 1rem;
-  //background-color: #fff;
-  //border-radius: 0.25rem;
-  //position: absolute;
-  //top: 20px;
-  //left: 50px;
-  //width: 40%; 
+.title {
+  padding: 10px auto;
 }
 
-.banner {
-  background: transparent;
-  color: #fff;
-  padding: 20px;
+.search-container {
+  border-style: none;
+  margin: 20px auto;
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  -moz-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.search-submit {
+  background-color: white;
+  border-style: none;
+  height: 90px;
   width: 100%;
-  border: 2px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.search {
-  padding: 3rem;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  margin: 1.5rem 2rem;
-  -webkit-box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.1);
-  width: 50%;
-  border: 2px solid red;
+.search-input {
+  /* border: 1px solid red; */
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
-  grid-gap: auto;
-  //height: 50%;
-}
-*/
-
-/* .search input { 
-  height: 2rem;
-  width: 100%;
-  padding: 1rem; 
-} 
-
-.search button {
-  width: 80%;
+  text-align: left;
 }
 
-.search + .movie-container {
-  border: 10px solid black;
+.results-container {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
 }
 
-.search .form-group {
-  width: 80%;
-  border: 2px solid orange;
-}
-
-MOVIE LIST 
-/*.movie-container {
-  border: 1px solid white;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  //margin: 1rem auto;
-  color: black;
-  width: 50%;
-  margin: 1.5rem 2rem;
-  //height: 80%;
+.movie-container {
+  /* border: 2px solid royalblue; */
+  /* margin: 20px auto; */
+  padding: 25px 25px;
+  background-color: white;
+  width: 48%;
+  /* justify-content: left; */
+  box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  -moz-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
 }
 
 .movie-details {
-  border: 1px solid black;
-  padding: 1rem;
-  background-color: #efd895;
-  border-radius: 0.25rem;
-  margin: 1rem auto;
-  color: black;
+  /* border: 1px dotted green; */
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-.movie-details button:hover {
-  cursor: pointer;
-}
-
-NOMINATION LIST 
-.nom-container {
-  border: 1px solid white;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  margin: 1rem auto;
-  color: black;
-  text-align: center;
-  width: 80%;
-  //position: absolute;
-  //top: 20px;
-  //right: 40px;
-  //width: 50%; 
-}
-
-.list-container {
-  display: inline-grid;
-  border: 1px solid red;
-  width: 100%;
-  //ustify-content: center;
-}
-
-.list-details {
+.movie-details-text {
   display: flex;
-  list-style-type: none;
-  border: 1px solid gray;
-  width: 100%;
-  padding: 20px auto;
+  /* flex-wrap: wrap; */
 }
 
-.list-details:hover {
-  text-decoration: line-through;
-  text-shadow: 0.8px 0.8px #3a07f3;
-} 
-*/
+.movie-details button,
+.nomlist-details button {
+  border-radius: 5px;
+  border: 0.2px solid lightgray;
+  padding: 5px 15px;
+  box-shadow: 0 0 2px #ccc;
+  -webkit-box-shadow: 0 0 2px #ccc;
+  -moz-box-shadow: 0 0 2px #ccc;
+  box-shadow: 0 0 2px #ccc;
+}
+
+.nom-container {
+  /* border: 2px solid gold; */
+  padding: 25px 25px;
+  background-color: white;
+  width: 48%;
+  box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  -moz-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.nomlist-details {
+  /* border: 1px dotted purple; */
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+.nomlist-details-text {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.nomlist-details-title {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
