@@ -11,7 +11,10 @@ const SearchContextProvider = (props) => {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [url, setUrl] = useState(API_URL);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(() => {
+    const localData = localStorage.getItem("nomList");
+    return localData ? JSON.parse(localData) : [];
+  });
   // const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
@@ -23,6 +26,10 @@ const SearchContextProvider = (props) => {
     };
     fetchData();
   }, [url]);
+
+  useEffect(() => {
+    localStorage.setItem("nomList", JSON.stringify(list));
+  }, [list]);
 
   const addItem = (id) => {
     console.log("ID IN ADD: ", id);
@@ -36,12 +43,12 @@ const SearchContextProvider = (props) => {
         id: movieToAdd.imdbID,
       },
     ]);
-    // setClicked(true);
   };
 
   const deleteItem = (id) => {
     console.log(`REMOVED movieList with ID: ${id}`);
     setList(list.filter((item) => item.id !== id));
+    // how to set the list back to original / reenable button?
   };
 
   return (

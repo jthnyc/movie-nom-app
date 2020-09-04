@@ -1,11 +1,11 @@
 import React from "react";
 
-const Banner = () => {
+const Title = () => {
   return (
-    <div className="banner">
+    <div className="title">
       <h1>Welcome to The Shoppies Award</h1>
     </div>
   );
 };
 
-export default Banner;
+export default Title;

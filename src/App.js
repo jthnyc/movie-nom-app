@@ -3,13 +3,13 @@ import SearchBar from "./components/SearchBar";
 import MovieList from "./components/MovieList";
 import NomList from "./components/NomList";
 import SearchContextProvider from "./contexts/SearchContext";
-import Banner from "./components/Banner";
+import Title from "./components/Title";
 
 const App = () => {
   return (
     <div className="App">
       <SearchContextProvider>
-        <Banner />
+        <Title />
         <div className="search-container">
           <SearchBar />
           <MovieList />

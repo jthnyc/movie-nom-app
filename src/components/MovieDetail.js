@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { SearchContext } from "../contexts/SearchContext";
+// import NomButton from "./NomButton";
 
 const MovieDetail = ({ title, director, year, id }) => {
   const { addItem } = useContext(SearchContext);
@@ -19,6 +20,7 @@ const MovieDetail = ({ title, director, year, id }) => {
       <button onClick={() => handleClick(id)} disabled={clicked}>
         Nominate
       </button>
+      {/* <NomButton handleClick={handleClick} id={id} /> */}
     </div>
   );
 };

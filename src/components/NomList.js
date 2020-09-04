@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ListDetail from "./ListDetail";
 import { SearchContext } from "../contexts/SearchContext";
 import { ReactSortable } from "react-sortablejs";
+import ListFullBanner from "./ListFullBanner";
 
 const NomList = () => {
   const { list, setList, deleteItem } = useContext(SearchContext);
@@ -10,6 +11,7 @@ const NomList = () => {
     <div className="nom-container">
       <h3>Nominations</h3>
       <div>
+        {list.length === 5 ? <ListFullBanner /> : ""}
         <ReactSortable
           list={list}
           setList={setList}
@@ -26,6 +28,7 @@ const NomList = () => {
             );
           })}
         </ReactSortable>
+        {list.length === 5 ? <button>Submit</button> : ""}
       </div>
     </div>
   );
