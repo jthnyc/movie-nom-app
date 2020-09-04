@@ -7,6 +7,7 @@ const SearchBar = () => {
 
   return (
     <div className="search-container">
+      <br />
       <form
         onSubmit={(e) => {
           setUrl(API_URL + `&s=${title}&type=movie`);
