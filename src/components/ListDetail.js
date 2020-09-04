@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ListDetail = ({ item, deleteItem }) => {
+const ListDetail = ({ item, deleteItem, submitted }) => {
+  const [disabledRemove, setDisableRemove] = useState("false");
+
   return (
-    <li className="list-details" onClick={() => deleteItem(item.id)}>
-      {/* <div> */}
+    <li className="list-details">
+      {/*onClick={() => deleteItem(item.id)} was on li */}
       <h5 className="card-title">{item.title}</h5>
       <h6 className="card-subtitle mb-2 text-muted">{item.year}</h6>
-      {/* </div> */}
-
-      {/* <div>
-        // <button onClick={() => deleteItem(item.id)}>X</button>
-      </div> */}
+      <button
+        className="nom-list-remove"
+        onClick={
+          submitted
+            ? () => {
+                console.log("can't delete");
+                setDisableRemove("true");
+              }
+            : () => deleteItem(item.id)
+        }
+        disable={disabledRemove}
+      >
+        Remove
+      </button>
     </li>
-    //   <li className="list-group-item">
-    //   <h5 className="card-title">{item.title}</h5>
-    //   <h6 className="card-subtitle mb-2 text-muted">{item.year}</h6>
-    // </li>
   );
 };
 

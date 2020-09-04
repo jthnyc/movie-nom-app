@@ -7,31 +7,47 @@ import ListFullBanner from "./ListFullBanner";
 const NomList = () => {
   const { list, setList, deleteItem } = useContext(SearchContext);
   const [submitted, setSubmit] = useState(false);
-  const [canSort, setCanSort] = useState(true);
+  const [disableSort, setDisableSort] = useState(false);
 
   const handleSubmit = () => {
     setSubmit(true);
-    setCanSort(false);
+    setDisableSort(true);
   };
 
   return (
     <div className="nom-container">
-      {console.log("SUBMITTED IN RETURN: ", submitted)}
-      {console.log("canSort IN RETURN: ", canSort)}
+      {/* {console.log("DisableSort is: ", disableSort)} */}
       <h3>Nominations</h3>
       <div>
         {list.length === 5 ? <ListFullBanner /> : ""}
-        <ReactSortable list={list} setList={setList} disabled={canSort}>
-          {list.map((item) => {
-            return (
-              <ListDetail
-                item={item}
-                key={item.imdbID}
-                deleteItem={deleteItem}
-              />
-            );
-          })}
-        </ReactSortable>
+        {disableSort === true ? (
+          <ReactSortable list={list} setList={setList} disabled={true}>
+            {list.map((item) => {
+              return (
+                <ListDetail
+                  item={item}
+                  key={item.id}
+                  deleteItem={deleteItem}
+                  submitted={submitted}
+                />
+              );
+            })}
+          </ReactSortable>
+        ) : (
+          <ReactSortable list={list} setList={setList} disabled={false}>
+            {list.map((item) => {
+              return (
+                <ListDetail
+                  item={item}
+                  key={item.id}
+                  deleteItem={deleteItem}
+                  submitted={submitted}
+                />
+              );
+            })}
+          </ReactSortable>
+        )}
+
         {list.length === 5 ? (
           <button onClick={handleSubmit} disabled={submitted}>
             Submit

@@ -34,7 +34,7 @@ const SearchContextProvider = (props) => {
   const addItem = (id) => {
     console.log("ID IN ADD: ", id);
     const movieToAdd = movieList.filter((movie) => movie.imdbID === id)[0];
-    console.log("ADDED ITEM!", movieToAdd);
+    console.log("ADDED ITEM!", movieToAdd.Title);
     setList([
       ...list,
       {
@@ -48,7 +48,6 @@ const SearchContextProvider = (props) => {
   const deleteItem = (id) => {
     console.log(`REMOVED movieList with ID: ${id}`);
     setList(list.filter((item) => item.id !== id));
-    // how to set the list back to original / reenable button?
   };
 
   return (
@@ -67,8 +66,6 @@ const SearchContextProvider = (props) => {
         addItem,
         API_URL,
         deleteItem,
-        // clicked,
-        // setClicked,
       }}
     >
       {props.children}

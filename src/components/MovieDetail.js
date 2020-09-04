@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { SearchContext } from "../contexts/SearchContext";
-// import NomButton from "./NomButton";
 
 const MovieDetail = ({ title, director, year, id }) => {
-  const { addItem } = useContext(SearchContext);
+  const { addItem, list } = useContext(SearchContext);
   const [clicked, setClicked] = useState(false);
 
   const handleClick = (id) => {
-    addItem(id);
-    setClicked(true);
+    if (list.length < 5) {
+      addItem(id);
+      setClicked(true);
+    }
   };
 
   return (
@@ -20,7 +21,6 @@ const MovieDetail = ({ title, director, year, id }) => {
       <button onClick={() => handleClick(id)} disabled={clicked}>
         Nominate
       </button>
-      {/* <NomButton handleClick={handleClick} id={id} /> */}
     </div>
   );
 };
