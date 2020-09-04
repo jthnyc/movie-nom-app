@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 
-const NomButton = ({ handleClick, id }) => {
+const SubmitButton = ({ handleClick, id }) => {
   const { clicked } = useContext(SearchContext);
   return (
     <div>
@@ -12,4 +12,4 @@ const NomButton = ({ handleClick, id }) => {
   );
 };
 
-export default NomButton;
+export default SubmitButton;

@@ -27,9 +27,7 @@ const MovieList = () => {
         //   <h6 className="card-subtitle mb-2 text-muted">{movie.Director}</h6>
         //   <p className="card-text">{movie.Year}</p>
         // </div>
-        <div>
-          <h5>No results</h5>
-        </div>
+        <div>{""}</div>
       )}
     </div>
   );
