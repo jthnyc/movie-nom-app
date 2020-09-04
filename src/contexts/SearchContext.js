@@ -9,7 +9,6 @@ const API_URL = `http://omdbapi.com/?apikey=${API_KEY}&results=10`;
 const SearchContextProvider = (props) => {
   const [movieList, setMovieList] = useState([]);
   const [title, setTitle] = useState("");
-  // const [year, setYear] = useState("");
   const [url, setUrl] = useState(API_URL);
   const [list, setList] = useState(() => {
     const localData = localStorage.getItem("nomList");
@@ -57,8 +56,6 @@ const SearchContextProvider = (props) => {
         setMovieList,
         title,
         setTitle,
-        // year,
-        // setYear,
         url,
         setUrl,
         list,

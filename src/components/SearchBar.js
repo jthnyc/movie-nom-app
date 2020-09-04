@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
+import magnifying from "../img/magnifying.png";
 
 const SearchBar = () => {
   const { title, setTitle, setUrl, API_URL } = useContext(SearchContext);
@@ -21,15 +22,6 @@ const SearchBar = () => {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          {/* <div className="form-group">
-          <label htmlFor="inputYear">Year (Optional)</label>
-          <input
-            type="text"
-            value={year}
-            className="form-control"
-            onChange={(e) => setYear(e.target.value)}
-          />
-        </div> */}
         </button>
       </form>
     </div>
