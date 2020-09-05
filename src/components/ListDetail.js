@@ -1,7 +1,7 @@
 import React from "react";
 import starIcon from "../img/starIcon.png";
 
-const ListDetail = ({ title, year, imdbID, deleteItem, submitted, key }) => {
+const ListDetail = ({ title, year, imdbID, deleteItem, submitted }) => {
   const handleClick = (id) => {
     deleteItem(id);
   };

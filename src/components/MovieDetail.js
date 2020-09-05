@@ -4,16 +4,15 @@ import filmIcon from "../img/filmIcon.png";
 
 const MovieDetail = ({ title, year, id, isDisabled }) => {
   const { addItem, movieList } = useContext(SearchContext);
-  // const [clicked, setClicked] = useState(false);
+
   let nominated = movieList
     ? movieList.filter((movie) => movie.isDisabled === true)
     : [];
 
   const handleClick = (id) => {
-    console.log("NOMINATED LENGTH: ", nominated.length);
+    // console.log("NOMINATED LENGTH: ", nominated.length);
     if (nominated.length < 5) {
       addItem(id);
-      // setClicked(true);
     }
   };
 

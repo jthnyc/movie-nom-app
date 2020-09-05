@@ -33,34 +33,31 @@ const MovieList = () => {
 
   return (
     <div className="movie-container">
-      {searchResult ? (
-        <h5>
-          Results for <em>"{title}"</em>
-        </h5>
-      ) : (
-        ""
-      )}
-
-      {searchResult ? (
-        <div className="movielist-container">
-          <ReactSortable
-            list={searchResult}
-            setList={setSearchResult}
-            disabled={true}
-          >
-            {notNominatedList
-              .sort((a, b) => a.Year - b.Year)
-              .map((movie) => (
-                <MovieDetail
-                  key={movie.imdbID}
-                  title={movie.Title}
-                  year={movie.Year}
-                  poster={movie.Poster}
-                  id={movie.imdbID}
-                  isDisabled={movie.isDisabled}
-                />
-              ))}
-          </ReactSortable>
+      {title ? (
+        <div>
+          <h5>
+            Results for <em>"{title}"</em>
+          </h5>
+          <div className="movielist-container">
+            <ReactSortable
+              list={searchResult}
+              setList={setSearchResult}
+              disabled={true}
+            >
+              {notNominatedList
+                .sort((a, b) => a.Year - b.Year)
+                .map((movie) => (
+                  <MovieDetail
+                    key={movie.imdbID}
+                    title={movie.Title}
+                    year={movie.Year}
+                    poster={movie.Poster}
+                    id={movie.imdbID}
+                    isDisabled={movie.isDisabled}
+                  />
+                ))}
+            </ReactSortable>
+          </div>
         </div>
       ) : (
         <h5>Search Results</h5>
