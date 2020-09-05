@@ -19,25 +19,25 @@ const SearchContextProvider = (props) => {
     localStorage.setItem("nomList", JSON.stringify(nominatedList));
   }, [nominatedList]);
 
+  // create a set when receiving data to avoid duplicates by unique ids -- cats (1998)
   useEffect(() => {
     const fetchData = async () => {
       const response = await Axios(url);
-      const movies = response.data["Search"] || []; // null coalesing
-      setSearchResult(movies);
+      const movies = response.data["Search"] || [];
+
+      let uniqueMovieIDs = [...new Set(movies.map((movie) => movie.imdbID))];
+
+      let uniqueMovies = [];
+      uniqueMovieIDs.map((id) =>
+        uniqueMovies.push(movies.find((movie) => movie.imdbID === id))
+      );
+
+      setSearchResult(uniqueMovies);
     };
     fetchData();
   }, [url]);
 
   const addItem = (id) => {
-    // flip isNominated to true
-    console.log("ID IN ADD: ", id);
-    // const updatedListWithNominated = searchResult.map((movie) => {
-    //   if (movie.imdbID === id) {
-    //     movie.isNominated = true;
-    //   }
-    //   return movie;
-    // });
-
     const nominatedMovie = searchResult.find((movie) => movie.imdbID === id);
     console.log(nominatedMovie);
     // how to isolate this portion and get unique movies? not adding the same movie twice
@@ -47,7 +47,6 @@ const SearchContextProvider = (props) => {
   };
 
   const deleteItem = (id) => {
-    // flip isNominated to false
     const filteredNominatedList = nominatedList.filter((movie) => {
       return movie.imdbID !== id;
     });

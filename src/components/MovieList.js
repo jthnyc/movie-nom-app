@@ -8,7 +8,7 @@ const MovieList = () => {
     SearchContext
   );
 
-  console.log("Movie LIST Before: ", searchResult);
+  // console.log("Movie LIST Before: ", searchResult);
 
   // ? movieList.filter(
   //   (movie) =>
@@ -19,17 +19,17 @@ const MovieList = () => {
 
   let notNominatedList = searchResult
     ? searchResult.filter((movie) => {
-        console.log(
-          "nominatedList.includes(res)",
-          nominatedList.includes(movie)
-        );
+        // console.log(
+        //   "nominatedList.includes(res)",
+        //   nominatedList.includes(movie)
+        // );
         return !nominatedList.find(
           (nominatedMovie) => nominatedMovie.imdbID === movie.imdbID
         );
       })
     : [];
 
-  console.log("NOT NOMINATED LIST: ", notNominatedList);
+  // console.log("NOT NOMINATED LIST: ", notNominatedList);
 
   return (
     <div className="movie-container">

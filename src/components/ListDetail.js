@@ -1,7 +1,7 @@
 import React from "react";
 import starIcon from "../img/starIcon.png";
 
-const ListDetail = ({ item, deleteItem, submitted, key }) => {
+const ListDetail = ({ title, year, imdbID, deleteItem, submitted, key }) => {
   const handleClick = (id) => {
     deleteItem(id);
   };
@@ -13,14 +13,14 @@ const ListDetail = ({ item, deleteItem, submitted, key }) => {
       </span>
       <div className="nomlist-details-text">
         <p>
-          {item.Title} ({item.Year})
+          {title} ({year})
         </p>
       </div>
 
       {submitted === true ? (
         <div></div>
       ) : (
-        <button onClick={() => handleClick(item.imdbID)}>Remove</button>
+        <button onClick={() => handleClick(imdbID)}>Remove</button>
       )}
     </li>
   );

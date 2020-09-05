@@ -9,35 +9,35 @@ const NomList = () => {
     SearchContext
   );
   const [submitted, setSubmit] = useState(false);
-  // const [disableSort, setDisableSort] = useState(false);
-  // const nominated = movieList
-  //   ? movieList.filter((movie) => movie.isNominated === true)
-  //   : [];
+  const [reset, setReset] = useState(false);
 
-  console.log("NOMINATED IN NOMLIST: ", nominatedList);
+  // console.log("NOMINATED IN NOMLIST: ", nominatedList);
   const handleSubmit = () => {
     setSubmit(true);
-    // setDisableSort(true);
+  };
+
+  const handleReset = () => {
+    setReset(true);
+    setNominatedList([]);
   };
 
   return (
     <div className="nom-container">
-      {/* {console.log("DisableSort is: ", disableSort)} */}
       <h5>Nominations</h5>
 
-      {submitted === true ? (
-        <div className="nomlist-submitted">
+      {reset === true ? (
+        <div>
           <ReactSortable
             list={nominatedList}
             setList={setNominatedList}
-            disabled={true}
+            disabled={false}
           >
             {nominatedList.map((item) => {
               return (
                 <ListDetail
-                  // title={item.Title}
-                  // year={item.Year}
-                  item={item}
+                  title={item.Title}
+                  year={item.Year}
+                  imdbID={item.imdbID}
                   key={item.imdbID}
                   deleteItem={deleteItem}
                   submitted={submitted}
@@ -45,42 +45,81 @@ const NomList = () => {
               );
             })}
           </ReactSortable>
-          <button>Edit</button>
         </div>
       ) : (
         <div>
-          {nominatedList.length === 5 ? <ListFullBanner /> : ""}
-          <div className="nomlist-container">
-            <ReactSortable
-              list={nominatedList}
-              setList={setNominatedList}
-              disabled={false}
-            >
-              {nominatedList.map((item) => {
-                return (
-                  <ListDetail
-                    // title={item.Title}
-                    // year={item.Year}
-                    item={item}
-                    key={item.imdbID}
-                    deleteItem={deleteItem}
-                    submitted={submitted}
-                  />
-                );
-              })}
-            </ReactSortable>
-            {nominatedList.length === 5 ? (
-              <button
-                className="list-full-button"
-                onClick={handleSubmit}
-                disabled={submitted}
+          {submitted === true ? (
+            <div className="nomlist-submitted">
+              <p>Your nominations as follows. May the best movie win!</p>
+              <ReactSortable
+                list={nominatedList}
+                setList={setNominatedList}
+                disabled={true}
               >
-                Submit
+                {nominatedList.map((item) => {
+                  return (
+                    <ListDetail
+                      title={item.Title}
+                      year={item.Year}
+                      imdbID={item.imdbID}
+                      item={item}
+                      key={item.imdbID}
+                      deleteItem={deleteItem}
+                      submitted={submitted}
+                    />
+                  );
+                })}
+              </ReactSortable>
+              <button
+                type="submit"
+                className="list-full-button"
+                onClick={handleReset}
+              >
+                Make Another Submission
               </button>
-            ) : (
-              ""
-            )}
-          </div>
+            </div>
+          ) : (
+            <div>
+              {nominatedList.length === 5 ? <ListFullBanner /> : ""}
+              <div className="nomlist-container">
+                <ReactSortable
+                  list={nominatedList}
+                  setList={setNominatedList}
+                  disabled={false}
+                >
+                  {nominatedList.map((item) => {
+                    return (
+                      <ListDetail
+                        title={item.Title}
+                        year={item.Year}
+                        imdbID={item.imdbID}
+                        key={item.imdbID}
+                        deleteItem={deleteItem}
+                        submitted={submitted}
+                      />
+                    );
+                  })}
+                </ReactSortable>
+                {nominatedList.length === 5 ? (
+                  <div>
+                    <button
+                      type="submit"
+                      className="list-full-button"
+                      onClick={handleSubmit}
+                      disabled={submitted}
+                    >
+                      Submit
+                    </button>
+                    <em>
+                      Please note you won't be able to edit once you submit!
+                    </em>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

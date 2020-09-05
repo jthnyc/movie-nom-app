@@ -106,6 +106,7 @@ code {
   border-radius: 5px;
   border: 0.2px solid lightgray;
   padding: 5px 15px;
+  height: 15%;
   box-shadow: 0 0 2px #ccc;
   -webkit-box-shadow: 0 0 2px #ccc;
   -moz-box-shadow: 0 0 2px #ccc;
@@ -147,6 +148,9 @@ code {
 }
 
 .nomlist-submitted {
+  display: table;
+  margin: 25px auto;
+  width: 98%;
 }
 
 .list-full-banner {
