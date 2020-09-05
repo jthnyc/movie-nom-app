@@ -28,6 +28,18 @@ code {
 
 .title {
   padding: 10px auto;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.title h1 {
+  /* border: 1px dotted green; */
+  margin: 2px 0 0;
+  background-image: linear-gradient(45deg, #4d5eff, #b928ff);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .search-container {
@@ -50,9 +62,34 @@ code {
 }
 
 .search-input {
-  /* border: 1px solid red; */
-  display: grid;
+  /* border: transparent; */
+  /* border-bottom: 1px solid red; */
+  display: flex;
+  flex-direction: column;
   text-align: left;
+  column-gap: 5rem;
+  /* width: 90%; */
+}
+
+.search-input-field {
+  display: flex;
+  /* border: 1px solid blue; */
+  width: 100%;
+  /* justify-content: space-between; */
+}
+
+.search-input input {
+  border: transparent;
+  border-bottom: 1px solid #4d5eff;
+  /* border-radius: 8px; */
+  /* border: none; */
+  width: 90%;
+  outline: none;
+  /* border: 1px solid red; */
+}
+
+.search-input img {
+  width: 30px;
 }
 
 .results-container {
@@ -93,6 +130,13 @@ code {
   position: relative;
   left: 0px;
   justify-content: space-between;
+}
+
+.movielist-details button {
+  background-image: linear-gradient(45deg, #4d5eff, #b928ff);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .movie-details-text {
@@ -149,6 +193,15 @@ code {
   cursor: grabbing;
 }
 
+.nomlist-details button {
+  cursor: pointer;
+  background-image: linear-gradient(45deg, #4d5eff, #b928ff);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: none;
+}
+
 .nomlist-details-text {
   display: flex;
   /* border: 0.5px solid blue; */
@@ -169,10 +222,21 @@ code {
   margin: 30px 0 0 0;
   width: 100%;
   border-radius: 5px;
-  border: 0.2px solid lightgray;
+  /* border: 0.2px solid lightgray; */
   padding: 5px 15px;
   box-shadow: 0 0 2px #ccc;
   -webkit-box-shadow: 0 0 2px #ccc;
   -moz-box-shadow: 0 0 2px #ccc;
   box-shadow: 0 0 2px #ccc;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, #4d5eff, #b928ff);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: none;
+}
+
+.warning {
+  display: flex;
+  justify-content: center;
 }

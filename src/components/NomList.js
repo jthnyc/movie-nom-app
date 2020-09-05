@@ -127,9 +127,13 @@ const NomList = () => {
                     >
                       Submit
                     </button>
-                    <em>
-                      Please note you won't be able to edit once you submit!
-                    </em>
+                    <br />
+                    <br />
+                    <div className="warning">
+                      <em>
+                        Please note you won't be able to edit once you submit!
+                      </em>
+                    </div>
                   </div>
                 ) : (
                   ""

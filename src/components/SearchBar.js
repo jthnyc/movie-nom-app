@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
-// import magnifying from "../img/magnifying.png";
+import magnifying from "../img/magnifying.png";
 
 const SearchBar = () => {
   const { title, setTitle, setUrl, API_URL } = useContext(SearchContext);
@@ -16,11 +16,16 @@ const SearchBar = () => {
         <button type="submit" className="search-submit">
           <div className="search-input">
             <label htmlFor="inputTitle">Movie Title</label>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
+            <div className="search-input-field">
+              <img src={magnifying} alt="search" />
+              <input
+                type="search"
+                value={title}
+                placeholder="Search Movies"
+                onFocus={(e) => (e.target.placeholder = "")}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
           </div>
         </button>
       </form>
