@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ListDetail from "./ListDetail";
 import { SearchContext } from "../contexts/SearchContext";
 import { ReactSortable } from "react-sortablejs";
@@ -8,7 +8,10 @@ const NomList = () => {
   const { nominatedList, setNominatedList, deleteItem } = useContext(
     SearchContext
   );
-  const [submitted, setSubmit] = useState(false);
+  const [submitted, setSubmit] = useState(() => {
+    const localData = localStorage.getItem("submitted");
+    return localData ? JSON.parse(localData) : false;
+  });
   const [reset, setReset] = useState(false);
 
   // console.log("NOMINATED IN NOMLIST: ", nominatedList);
@@ -20,6 +23,10 @@ const NomList = () => {
     setReset(true);
     setNominatedList([]);
   };
+
+  useEffect(() => {
+    localStorage.setItem("submitted", JSON.stringify(submitted));
+  }, [submitted]);
 
   return (
     <div className="nom-container">

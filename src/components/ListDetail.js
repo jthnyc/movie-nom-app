@@ -20,7 +20,7 @@ const ListDetail = ({ title, year, imdbID, deleteItem, submitted, key }) => {
       {submitted === true ? (
         <div></div>
       ) : (
-        <button onClick={() => handleClick(imdbID)}>Remove</button>
+        <button onClick={() => handleClick(imdbID)}>X</button>
       )}
     </li>
   );

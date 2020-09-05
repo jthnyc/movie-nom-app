@@ -12,6 +12,7 @@ const SearchContextProvider = (props) => {
   const [url, setUrl] = useState(API_URL);
   const [nominatedList, setNominatedList] = useState(() => {
     const localData = localStorage.getItem("nomList");
+
     return localData ? JSON.parse(localData) : [];
   });
 
