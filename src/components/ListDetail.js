@@ -2,10 +2,6 @@ import React from "react";
 import starIcon from "../img/starIcon.png";
 
 const ListDetail = ({ title, year, imdbID, deleteItem, submitted }) => {
-  const handleClick = (id) => {
-    deleteItem(id);
-  };
-
   return (
     <li className="nomlist-details">
       <span>
@@ -20,7 +16,7 @@ const ListDetail = ({ title, year, imdbID, deleteItem, submitted }) => {
       {submitted === true ? (
         <div></div>
       ) : (
-        <button onClick={() => handleClick(imdbID)}>X</button>
+        <button onClick={() => deleteItem(imdbID)}>X</button>
       )}
     </li>
   );

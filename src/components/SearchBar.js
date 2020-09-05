@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { SearchContext } from "../contexts/SearchContext";
 import magnifying from "../img/magnifying.png";
+import { AppContext } from "../contexts/AppContext";
 
 const SearchBar = () => {
-  const { title, setTitle, setUrl, API_URL } = useContext(SearchContext);
+  const { title, setTitle, setUrl, API_URL } = useContext(AppContext);
 
   return (
     <div className="search-container">
