@@ -10,6 +10,7 @@ const MovieDetail = ({ title, year, id, isDisabled }) => {
     : [];
 
   const handleClick = (id) => {
+    console.log("NOMINATED LENGTH: ", nominated.length);
     if (nominated.length < 5) {
       addItem(id);
       // setClicked(true);

@@ -14,7 +14,7 @@ const NomList = () => {
     ? movieList.filter((movie) => movie.isNominated === true)
     : [];
 
-  // console.log("NOMINATED IN NOMLIST: ", nominated);
+  console.log("NOMINATED IN NOMLIST: ", nominated);
   const handleSubmit = () => {
     setSubmit(true);
     // setDisableSort(true);
@@ -28,7 +28,7 @@ const NomList = () => {
       {submitted === true ? (
         <div className="nomlist-submitted">
           <ReactSortable
-            list={movieList}
+            list={nominated}
             setList={setMovieList}
             disabled={true}
           >
@@ -49,10 +49,10 @@ const NomList = () => {
         </div>
       ) : (
         <div>
-          {list.length === 5 ? <ListFullBanner /> : ""}
+          {nominated.length === 5 ? <ListFullBanner /> : ""}
           <div className="nomlist-container">
             <ReactSortable
-              list={movieList}
+              list={nominated}
               setList={setMovieList}
               disabled={false}
             >
@@ -69,7 +69,7 @@ const NomList = () => {
                 );
               })}
             </ReactSortable>
-            {list.length === 5 ? (
+            {nominated.length === 5 ? (
               <button
                 className="list-full-button"
                 onClick={handleSubmit}

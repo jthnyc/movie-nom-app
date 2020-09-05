@@ -6,6 +6,10 @@ import { ReactSortable } from "react-sortablejs";
 const MovieList = () => {
   const { movieList, setMovieList, title } = useContext(SearchContext);
 
+  let notNominatedList = movieList
+    ? movieList.filter((movie) => movie.isNominated !== true)
+    : [];
+
   return (
     <div className="movie-container">
       {movieList ? (
@@ -23,7 +27,7 @@ const MovieList = () => {
             setList={setMovieList}
             disabled={true}
           >
-            {movieList
+            {notNominatedList
               .sort((a, b) => a.Year - b.Year)
               .map((movie) => (
                 <MovieDetail

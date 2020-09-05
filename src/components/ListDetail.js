@@ -2,9 +2,6 @@ import React from "react";
 import starIcon from "../img/starIcon.png";
 
 const ListDetail = ({ item, deleteItem, submitted, key }) => {
-  // const [disabledRemove, setDisableRemove] = useState("false");
-  console.log("ITEM IN LIST DETAIL: ", item);
-
   const handleClick = (id) => {
     deleteItem(id);
   };
@@ -23,12 +20,7 @@ const ListDetail = ({ item, deleteItem, submitted, key }) => {
       {submitted === true ? (
         <div></div>
       ) : (
-        <button
-          onClick={() => handleClick(item.imdbID)}
-          // disable={disabledRemove}
-        >
-          Remove
-        </button>
+        <button onClick={() => handleClick(item.imdbID)}>Remove</button>
       )}
     </li>
   );
