@@ -4,7 +4,7 @@ import Axios from "axios";
 export const SearchContext = createContext();
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const API_URL = `http://omdbapi.com/?apikey=${API_KEY}&results=10`;
+const API_URL = `https://omdbapi.com/?apikey=${API_KEY}&results=10`;
 
 const SearchContextProvider = (props) => {
   const [searchResult, setSearchResult] = useState([]);
