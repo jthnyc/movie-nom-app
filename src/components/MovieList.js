@@ -4,15 +4,36 @@ import MovieDetail from "../components/MovieDetail";
 import { ReactSortable } from "react-sortablejs";
 
 const MovieList = () => {
-  const { movieList, setMovieList, title } = useContext(SearchContext);
+  const { searchResult, setSearchResult, nominatedList, title } = useContext(
+    SearchContext
+  );
 
-  let notNominatedList = movieList
-    ? movieList.filter((movie) => movie.isNominated !== true)
+  console.log("Movie LIST Before: ", searchResult);
+
+  // ? movieList.filter(
+  //   (movie) =>
+  //     !nominatedList.find(
+  //       (nominatedMovie) => nominatedMovie.imdbID === movie.imdbID
+  //     )
+  // )
+
+  let notNominatedList = searchResult
+    ? searchResult.filter((movie) => {
+        console.log(
+          "nominatedList.includes(res)",
+          nominatedList.includes(movie)
+        );
+        return !nominatedList.find(
+          (nominatedMovie) => nominatedMovie.imdbID === movie.imdbID
+        );
+      })
     : [];
+
+  console.log("NOT NOMINATED LIST: ", notNominatedList);
 
   return (
     <div className="movie-container">
-      {movieList ? (
+      {searchResult ? (
         <h5>
           Results for <em>"{title}"</em>
         </h5>
@@ -20,11 +41,11 @@ const MovieList = () => {
         ""
       )}
 
-      {movieList ? (
+      {searchResult ? (
         <div className="movielist-container">
           <ReactSortable
-            list={movieList}
-            setList={setMovieList}
+            list={searchResult}
+            setList={setSearchResult}
             disabled={true}
           >
             {notNominatedList

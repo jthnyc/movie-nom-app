@@ -5,16 +5,16 @@ import { ReactSortable } from "react-sortablejs";
 import ListFullBanner from "./ListFullBanner";
 
 const NomList = () => {
-  const { movieList, setMovieList, list, deleteItem } = useContext(
+  const { nominatedList, setNominatedList, deleteItem } = useContext(
     SearchContext
   );
   const [submitted, setSubmit] = useState(false);
   // const [disableSort, setDisableSort] = useState(false);
-  const nominated = movieList
-    ? movieList.filter((movie) => movie.isNominated === true)
-    : [];
+  // const nominated = movieList
+  //   ? movieList.filter((movie) => movie.isNominated === true)
+  //   : [];
 
-  console.log("NOMINATED IN NOMLIST: ", nominated);
+  console.log("NOMINATED IN NOMLIST: ", nominatedList);
   const handleSubmit = () => {
     setSubmit(true);
     // setDisableSort(true);
@@ -28,11 +28,11 @@ const NomList = () => {
       {submitted === true ? (
         <div className="nomlist-submitted">
           <ReactSortable
-            list={nominated}
-            setList={setMovieList}
+            list={nominatedList}
+            setList={setNominatedList}
             disabled={true}
           >
-            {nominated.map((item) => {
+            {nominatedList.map((item) => {
               return (
                 <ListDetail
                   // title={item.Title}
@@ -49,14 +49,14 @@ const NomList = () => {
         </div>
       ) : (
         <div>
-          {nominated.length === 5 ? <ListFullBanner /> : ""}
+          {nominatedList.length === 5 ? <ListFullBanner /> : ""}
           <div className="nomlist-container">
             <ReactSortable
-              list={nominated}
-              setList={setMovieList}
+              list={nominatedList}
+              setList={setNominatedList}
               disabled={false}
             >
-              {nominated.map((item) => {
+              {nominatedList.map((item) => {
                 return (
                   <ListDetail
                     // title={item.Title}
@@ -69,7 +69,7 @@ const NomList = () => {
                 );
               })}
             </ReactSortable>
-            {nominated.length === 5 ? (
+            {nominatedList.length === 5 ? (
               <button
                 className="list-full-button"
                 onClick={handleSubmit}
