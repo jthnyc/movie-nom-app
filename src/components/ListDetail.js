@@ -4,9 +4,9 @@ import starIcon from "../img/starIcon.png";
 const ListDetail = ({ title, year, imdbID, deleteItem, submitted }) => {
   return (
     <li className="nomlist-details">
-      <span>
+      <div className="nomlist-icon">
         <img src={starIcon} alt="starIcon" />
-      </span>
+      </div>
       <div className="nomlist-details-text">
         <p>
           {title} ({year})

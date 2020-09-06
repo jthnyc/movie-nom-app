@@ -12,8 +12,8 @@ const MovieList = () => {
           <h5>
             Results for <em>"{title}"</em>
           </h5>
-          <div className="movielist-container">
-            <ul>
+          <div>
+            <ul className="movielist-container">
               {notNominatedList.map((movie) => (
                 <MovieDetail
                   key={movie.imdbID}
