@@ -43,7 +43,7 @@ const NomList = () => {
       <div>
         {submitted === true ? (
           <div className="nomlist-submitted">
-            <h2>Your nominations as follows. May the best movie win!</h2>
+            <h2>Your nominations are as follows. May the best movie win!</h2>
             <ReactSortable
               list={nominatedList}
               setList={setNominatedList}
