@@ -229,20 +229,23 @@ code {
 }
 
 .list-full-banner {
-  margin: 15px auto;
+  margin-top: 20px;
   /* border: 1px solid black; */
-  height: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .list-full-banner h3 {
-  font-size: 18px;
+  font-size: 28px;
+  /* font-weight: bold; */
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .list-full-banner p {
   font-size: 15px;
+  margin-bottom: 10p;
 }
 
 .list-full-button {
