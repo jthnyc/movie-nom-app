@@ -2,10 +2,10 @@
 
 Nominate your top 5 movies for the Shoppies awards. Cast your vote at: [https://movie-nom-app.vercel.app/](https://movie-nom-app.vercel.app/)
 
-# Application Walk Through
+### Application Walk Through
 
 - Users can search for favorite movies
-  ![Searchbar](https://github.com/jthnyc/movie-nom-app/blob/master/public/Searchbar.gif)
+  <img src="https://github.com/jthnyc/movie-nom-app/blob/master/public/Searchbar.gif" width="400" height="790>
 - Search results returned in the movie list panel can be nominated
   ![Movie List](https://github.com/jthnyc/movie-nom-app/blob/master/public/MovieList.gif)
 - Nomination list can be reordered or removed
