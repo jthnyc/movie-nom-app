@@ -5,7 +5,7 @@ Nominate your top 5 movies for the Shoppies awards. Cast your vote at: [https://
 ### Application Walk Through
 
 - Users can search for favorite movies
-  <img src="https://github.com/jthnyc/movie-nom-app/blob/master/public/Searchbar.gif" width="400" height="790>
+  ![Searchbar](https://github.com/jthnyc/movie-nom-app/blob/master/public/Searchbar.gif)
 - Search results returned in the movie list panel can be nominated
   ![Movie List](https://github.com/jthnyc/movie-nom-app/blob/master/public/MovieList.gif)
 - Nomination list can be reordered or removed
