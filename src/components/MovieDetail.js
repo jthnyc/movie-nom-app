@@ -1,5 +1,4 @@
 import React from "react";
-// import { SearchContext } from "../contexts/SearchContext";
 import filmIcon from "../img/filmIcon.png";
 
 const MovieDetail = ({ title, year, id, onNominateClicked }) => {

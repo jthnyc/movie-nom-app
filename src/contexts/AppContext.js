@@ -45,10 +45,8 @@ const AppContextProvider = (props) => {
     }
 
     const nominatedMovie = searchResult.find((movie) => movie.imdbID === id);
-    // console.log(nominatedMovie);
     const newNominations = [...nominatedList, nominatedMovie];
     setNominatedList(newNominations);
-    // console.log("NOMINATED list: ", newNominations);
   };
 
   const deleteItem = (id) => {
@@ -56,7 +54,6 @@ const AppContextProvider = (props) => {
       return movie.imdbID !== id;
     });
     setNominatedList(filteredNominatedList);
-    // console.log(`REMOVE: removed ${id} from nominated ->`, nominatedList);
   };
 
   const createNonNominatedList = () =>
