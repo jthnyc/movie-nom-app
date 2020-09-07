@@ -5,15 +5,15 @@ Nominate your top 5 movies for the Shoppies awards. Cast your vote at: [https://
 # Application Walk Through
 
 - Users can search for favorite movies
-  ![Searchbar](http://www.giphy.com/gifs/cL4vqJRwM2hs9bNXcv/giphy.gif)
+  ![Searchbar](https://github.com/jthnyc/movie-nom-app/blob/master/public/Searchbar.gif)
 - Search results returned in the movie list panel can be nominated
-  ![Movie List](http://www.giphy.com/gifs/hu0WfbdJYf3mMvehMV/giphy.gif)
+  ![Movie List](https://github.com/jthnyc/movie-nom-app/blob/master/public/MovieList.gif)
 - Nomination list can be reordered or removed
-  ![Nomination List](http://www.giphy.com/gifs/WTu9jr3BRo5z2WTbIi/giphy.gif)
+  ![Nomination List](https://github.com/jthnyc/movie-nom-app/blob/master/public/NominationList.gif)
 - Nomination list persist before and after submission
-  ![List Persists](http://www.giphy.com/gifs/hQLgIgQry4SGTxUIgD/giphy.gif)
+  ![List Persists](https://github.com/jthnyc/movie-nom-app/blob/master/public/ListPersist.gif)
 - Users can submit a new list
-  ![Submit New List](http://www.giphy.com/gifs/h2ZBgv3Yf1D13bNWTd/giphy.gif)
+  ![Submit New List](https://github.com/jthnyc/movie-nom-app/blob/master/public/NewSubmission.gif)
 
 ```
 Getting Started
